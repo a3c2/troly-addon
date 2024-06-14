@@ -1,0 +1,114 @@
+---
+markets: "" # comma-separated list of 2-letters country codes. empty for all
+availability: "" # comma-separated list of any: enabled, referral, invite, request, deprecated, soon
+provider: "A3C2" # the middle bit in the class name for the gateway - Integrations::THIS_HERE::Gateway
+processor: "Base" # the expected list of functions to support, one of Acounting, Website, Email, Data, Payment or Shipment 
+logo: "https://res.cloudinary.com/subscribility-p/image/upload/w_128/cdn/qr.a3c2.com/facivon.png" #link to logo image. displaied as 80x80 and 120x120
+hero: "" #link to hero image.
+website: "" 
+info_url: "" # link to website where more product information can be found
+support_url: ""
+pricing_url: "" # link to website where more product information can be found
+pricing: ""
+tags: "third-party"
+supports: "products_updown,customers_down"
+tbyb: true
+
+production:
+  admin_url: "" # link to admin panel, allow for premium partners to have direct nav access
+
+development:
+
+test:
+
+layout:
+  fields: "_select_your_plan,plan_selected,_qr_config,qr_code_eye,qr_code_style,qr_code_ball,colour_text,colour_bg,colour_eye,colour_ball"
+
+  _select_your_plan:
+    type: "section"
+
+  plan_selected:
+    size: "col-12"
+    type: "radio"
+    validate: "required,in-list"
+    options: "qr_codes|basic_labels|advanced_labels"
+
+  _qr_config:
+    type: "section"
+
+  qr_code_style:
+    size: "col-12"
+    type: "select-image"
+    validate: "required,in-list"
+    options: "square|dot|round|circle|circle-zebra|circle-zebra|circlar"
+  
+  qr_code_eye:
+    size: "col-12"
+    type: "select-image"
+    validate: "required,in-list"
+    options: "frame0-ball0|frame1-ball1|frame2-ball2|frame3-ball3|frame12-ball14|frame13-ball15|frame5-ball11|frame0-ball9"
+
+  qr_code_ball:
+    size: "col-12"
+    type: "select-image"
+    validate: "required,in-list"
+    options: "frame0-ball0|frame1-ball1|frame2-ball2|frame3-ball3|frame12-ball14|frame13-ball15|frame5-ball11"
+
+  colour_text:
+    size: "col-6"
+    type: "color"
+  
+  colour_eye:
+    size: "col-6"
+    type: "color"
+
+  colour_ball:
+    size: "col-6"
+    type: "color"
+
+translations:
+  en:
+    name: "QR Codes, eLabels & Ingredients"
+    info: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life."
+    description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img src=\"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png\">"
+    benefits: "configure look-and-feel for all QR codes generated\ngenerate eLabels with offers, subscriptions or time-limited offers\nadd regulatory details such as nutrition information for each product"
+    instructions: "You do not require an account to continue. Troly will create one for you. QR codes will be generated for your entire product catalogue within a few minutes of having configured the application."
+    support: ""
+    price: "19"
+    price_max: "139"
+    pricing: "This application offers 3 packages and levels of functionality. All Troly customers instantly get a 20% discount on all plans offered by ACME QR Codes."
+    premium: ""
+    ondemand: "QR Codes are generated once and regenerated on-demand."
+    ondemand_options: "create_qrcode_products=Generate All Products QR Codes&create_qrcode_product=Generate Product QR Codes&create_qrcode_customers=Generate All Contacts QR Codes&create_qrcode_customer=Generate Contact QR Codes"
+
+    labels:
+      _select_your_plan:
+        label: "Select the plan that suits you best"
+        hint: "To continue using this application you must select a plan."
+      
+      plan_selected:
+        label: "Plan Selected"
+        options: "qr_codes=Unlimited QR Codes only&basic_labels=Unlimited QR Codes with product e-Labels&advanced_labels=Unlimited QR codes, eLabels, and Nutrition Information labels"
+        hint: "All functionality is available immediately, however downgrading will also result in immediate data loss."
+
+      _qr_config:
+        label: "Configure your QR codes"
+      
+      qr_code_style:
+        label: "QR Style"
+        options: "square=http://google.com&dot=https://yahoo.com"
+
+      qr_code_eye:
+        label: "Eye Outer Style"
+      
+      qr_code_ball:
+        label: "Eye Inner Style"
+
+      colour_text:
+        label: "Code Color"
+      
+      colour_eye:
+        label: "Outer Eye Color"
+      
+      colour_ball:
+        label: "Inner Eye Color"
