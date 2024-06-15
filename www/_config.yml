@@ -20,10 +20,14 @@ github:
 pages:
   - title: "Home"
     url: /
+    order: 1
   - title: "Pricing"
     url: /pricing
+    order: 2
   - title: "Register"
     url: /register
+    order: 3
   - title: "About Us"
     url: /about
+    order: 4
     

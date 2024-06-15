@@ -1,7 +1,7 @@
 ---
-title: A3C2 Pricing
+title: Create Your Account
 ---
-# Some Pricing Information
+# Creating your Account
 
 This page tells you a little bit about me.
 

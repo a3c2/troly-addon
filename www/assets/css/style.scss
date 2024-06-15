@@ -7,4 +7,17 @@ header {
 	text-align:center; 
 
 	p { margin-top:1rem; }
+
+	nav.menu {
+		margin-top:2rem;
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+
+			li {
+				margin:0.5rem 0;
+			}
+		}
+	}
 }
