@@ -1,4 +1,9 @@
 ---
+---
+
+@import "{{ site.theme }}";
+
+---
 title: Home
 ---
 # The A3C2 Project
