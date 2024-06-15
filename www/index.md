@@ -1,11 +1,8 @@
 ---
----
-
-@import "{{ site.theme }}";
-
----
 title: Home
 ---
+@import "{{ site.theme }}";
+
 # The A3C2 Project
 
 ### From QR Code, to product information and repeat sales.
