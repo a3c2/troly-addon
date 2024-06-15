@@ -1,4 +1,4 @@
-baseurl: /www
+baseurl: /
 url: https://a3c2.com/
 
 remote_theme: pages-themes/cayman@v0.2.0
