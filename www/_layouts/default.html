@@ -43,7 +43,7 @@
         {% endif %}
 			<nav class="menu">
 				<ul>
-				{% assign sitepages = site.pages | sort: order %}
+				{% assign sitepages = site.pages | sort: "order" %}
 				{% for item in sitepages %}
 					<li {% if page.url contains item.url %}class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
 				{% endfor %}

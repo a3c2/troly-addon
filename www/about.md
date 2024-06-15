@@ -1,5 +1,6 @@
 ---
 title: About A3C2
+order: 4
 ---
 # About page
 

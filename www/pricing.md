@@ -1,5 +1,6 @@
 ---
 title: A3C2 Pricing
+order: 2
 ---
 # Some Pricing Information
 
