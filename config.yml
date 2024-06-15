@@ -70,7 +70,7 @@ translations:
   en:
     name: "QR Codes, Product & Nutrition eLabels"
     info: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life."
-    description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img src=\"https://a3c2.com/images/sample-all.gif\">"
+    description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img width=100 height=100 style='margin-left:10%;' src=\"https://a3c2.com/images/sample-all.gif\">"
     benefits: "configure look-and-feel for all QR codes generated\ngenerate eLabels with offers, subscriptions or time-limited offers\nadd regulatory details such as nutrition information for each product"
     instructions: "You do not require an account to continue. Troly will create one for you. QR codes will be generated for your entire product catalogue within a few minutes of having configured the application."
     support: ""
