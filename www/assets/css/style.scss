@@ -3,4 +3,8 @@
 
 @import "{{ site.theme }}";
 
-body { color:red !important; }
+header { 
+	text-align:center; 
+
+	p { margin-top:1rem; }
+}

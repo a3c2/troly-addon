@@ -38,6 +38,14 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
+			<nav class="menu">
+				<ul>
+				{% for item in site.pages %}
+					<li {% if page.url contains item.url %}class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
+				{% endfor %}
+				</ul>
+			</nav>
+
       </header>
       <section>
 

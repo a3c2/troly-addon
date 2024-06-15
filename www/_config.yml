@@ -15,3 +15,15 @@ logo: https://res.cloudinary.com/subscribility-p/image/upload/w_250/cdn/qr.a3c2.
 github:
   is_project_page: false
   show_hosted: false
+
+
+pages:
+  - title: "Home"
+    url: /
+  - title: "Pricing"
+    url: /pricing
+  - title: "Register"
+    url: /register
+  - title: "About Us"
+    url: /about
+    
