@@ -3,7 +3,7 @@ markets: "" # comma-separated list of 2-letters country codes. empty for all
 availability: "" # comma-separated list of any: enabled, referral, invite, request, deprecated, soon
 provider: "A3C2" # the middle bit in the class name for the gateway - Integrations::THIS_HERE::Gateway
 processor: "Base" # the expected list of functions to support, one of Acounting, Website, Email, Data, Payment or Shipment 
-logo: "https://res.cloudinary.com/subscribility-p/image/upload/w_128/cdn/qr.a3c2.com/facivon.png" #link to logo image. displaied as 80x80 and 120x120
+logo: "https://res.cloudinary.com/subscribility-p/image/upload/w_128/cdn/qr.a3c2.com/logo.png" #link to logo image. displaied as 80x80 and 120x120
 hero: "" #link to hero image.
 website: "" 
 info_url: "" # link to website where more product information can be found
