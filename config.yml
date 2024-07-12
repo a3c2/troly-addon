@@ -22,7 +22,7 @@ development:
 test:
 
 layout:
-  fields: "_select_your_plan,plan_selected,_qr_config,qr_code_eye,qr_code_style,qr_code_ball,colour_text,colour_bg,colour_eye,colour_ball"
+  fields: "_select_your_plan,plan_selected,_qr_config,qr_code_eye,qr_code_ball,qr_code_style,colour_text,colour_bg,colour_eye,colour_ball"
 
   _select_your_plan:
     type: "section"
@@ -40,29 +40,29 @@ layout:
     size: "col-12"
     type: "select-image"
     validate: "required,in-list"
-    options: "square|dot|round|circle|circle-zebra|circle-zebra|circlar"
+    options: "square=https://www.qrcode-monkey.com/img/qr/body/square.png&dot=https://www.qrcode-monkey.com/img/qr/body/dot.png&round=https://www.qrcode-monkey.com/img/qr/body/round.png&circle=https://www.qrcode-monkey.com/img/qr/body/circle.png&circle-zebra=https://www.qrcode-monkey.com/img/qr/body/circle-zebra.png&circle-zebra-vertical=https://www.qrcode-monkey.com/img/qr/body/circle-zebra-vertical.png&circular=https://www.qrcode-monkey.com/img/qr/body/circular.png"
   
   qr_code_eye:
     size: "col-12"
     type: "select-image"
     validate: "required,in-list"
-    options: "frame0-ball0|frame1-ball1|frame2-ball2|frame3-ball3|frame12-ball14|frame13-ball15|frame5-ball11|frame0-ball9"
+    options: "frame0=https://www.qrcode-monkey.com/img/qr/eye-frames/frame0.png&frame1=https://www.qrcode-monkey.com/img/qr/eye-frames/frame1.png&frame2=https://www.qrcode-monkey.com/img/qr/eye-frames/frame2.png&frame3=https://www.qrcode-monkey.com/img/qr/eye-frames/frame3.png&frame12=https://www.qrcode-monkey.com/img/qr/eye-frames/frame12.png&frame13=https://www.qrcode-monkey.com/img/qr/eye-frames/frame13.png&frame5=https://www.qrcode-monkey.com/img/qr/eye-frames/frame5.png"
 
   qr_code_ball:
     size: "col-12"
     type: "select-image"
     validate: "required,in-list"
-    options: "frame0-ball0|frame1-ball1|frame2-ball2|frame3-ball3|frame12-ball14|frame13-ball15|frame5-ball11"
+    options: "ball0=https://www.qrcode-monkey.com/img/qr/eye-balls/ball0.png&ball1=https://www.qrcode-monkey.com/img/qr/eye-balls/ball1.png&ball2=https://www.qrcode-monkey.com/img/qr/eye-balls/ball2.png&ball3=https://www.qrcode-monkey.com/img/qr/eye-balls/ball3.png&ball14=https://www.qrcode-monkey.com/img/qr/eye-balls/ball14.png&ball15=https://www.qrcode-monkey.com/img/qr/eye-balls/ball15.png&ball11=https://www.qrcode-monkey.com/img/qr/eye-balls/ball11.png"
 
-  colour_text:
+  fore_colour_start:
     size: "col-6"
     type: "color"
   
-  colour_eye:
+  eye_outside_colour:
     size: "col-6"
     type: "color"
 
-  colour_ball:
+  eye_inside_colour:
     size: "col-6"
     type: "color"
 
@@ -70,7 +70,7 @@ translations:
   en:
     name: "QR Codes, Product & Nutrition eLabels"
     info: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life."
-    description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img width=100 height=100 style='margin-left:10%;' src=\"https://a3c2.com/images/sample-all.gif\">"
+    description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img width=110 height=110 style=\"margin-left:10%;\" src=\"https://a3c2.com/images/sample-all.gif\">"
     benefits: "configure look-and-feel for all QR codes generated\ngenerate eLabels with offers, subscriptions or time-limited offers\nadd regulatory details such as nutrition information for each product"
     instructions: "You do not require an account to continue. Troly will create one for you. QR codes will be generated for your entire product catalogue within a few minutes of having configured the application."
     support: ""
@@ -80,6 +80,17 @@ translations:
     premium: ""
     ondemand: "QR Codes are generated once and regenerated on-demand."
     ondemand_options: "create_qrcode_products=Generate All Products QR Codes&create_qrcode_product=Generate Product QR Codes&create_qrcode_customers=Generate All Contacts QR Codes&create_qrcode_customer=Generate Contact QR Codes"
+
+    plans_details:
+      qr_codes:
+        price: 19
+        description: "QR Codes"
+      basic_labels:
+        price: 49
+        description: "QR Codes + eLabels"
+      advanced_labels:
+        price: 89
+        description: "QR Codes + eLabels + Nutrition details"
 
     labels:
       _select_your_plan:
@@ -96,7 +107,6 @@ translations:
       
       qr_code_style:
         label: "QR Style"
-        options: "square=https://a3c3.com/images/samples/square.png&dot=https://a3c3.com/images/samples/dot.png"
 
       qr_code_eye:
         label: "Eye Outer Style"
@@ -104,11 +114,11 @@ translations:
       qr_code_ball:
         label: "Eye Inner Style"
 
-      colour_text:
+      fore_colour_start:
         label: "Code Color"
       
-      colour_eye:
+      eye_outside_colour:
         label: "Outer Eye Color"
       
-      colour_ball:
+      eye_inside_colour:
         label: "Inner Eye Color"

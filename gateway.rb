@@ -4,14 +4,18 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 
 	@params_to_store = {
 
-		colour_fg: '',			 # text colour
-		colour_bg: '',			 # background colour
-		colour_eye_in: '',	 # eye inside colour
-		colour_eye_out: '',	 # eye outside colour
+		fore_colour_start: '',			 # text colour: gradient start
+		fore_colour_end: '',				 # text colour: gradient end
+		fore_gradient_type: '',			 # text colour
+		back_colour: '',			 # background colour
+		eye_inside_colour: '',	 # eye inside colour
+		eye_outsite_colour: '',	 # eye outside colour
 
 		qr_style:'circle',
-		qr_style_eye:'frame1-ball1',
-		qr_style_ball:'frame1-ball1',
+		qr_style_eye:'frame1',
+		qr_style_ball:'ball1',
+
+		qr_logo:false,
 		
 		qr_code_logo:'',
 		qr_code_wrap:'',
@@ -21,6 +25,14 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 
 	@params_to_operate = [:plan_selected, :qr_code_style, :qr_code_eye]; 
 
+	def gateway_monthly_cost
+		return [] unless @plan_selected.present?
+
+		label = self.i18n("plans_details.#{@plan_selected}.description")
+		price = self.i18n("plans_details.#{@plan_selected}.price")
+
+		return [price, label]
+	end
 
 	# Generates a referral code ensuring uniqueness across both Company and CompanyCustomers
 	# @return [String] the generated code
@@ -66,7 +78,7 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 	# @return [MemoryFileBuffer] the QR code (to be used for a tagged uploader field), e.g. Product.qr_code
 	def generate_qr_code url
 
-		logoAllowed = false
+		return nil if ['qr_codes','basic_labels','advanced_labels'].exclude?(@plan_selected)
 
 		company = @integration.company
 		fg = @colour_fg || company&.branding_colour_primary || '#2f363a'
@@ -94,7 +106,7 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 			#"erf1":[],"erf2":[],"erf3":[],"brf1":[],"brf2":[],"brf3":[],
 			"bodyColor":fg,"bgColor":bg,
 			"eye1Color":eye_out,"eye2Color":eye_out,"eye3Color":eye_out,"eyeBall1Color":eye_in,"eyeBall2Color":eye_in,"eyeBall3Color":eye_in,
-			"gradientColor1":"","gradientColor2":"","gradientType":"linear","gradientOnEyes":"false","logo":logo.present? && logoAllowed ? logo : '', "logoMode": (logoAllowed && logo.present? ? 'clean' : 'default')
+			"gradientColor1":"","gradientColor2":"","gradientType":"linear","gradientOnEyes":"false","logo":logo.present? && @qr_logo ? logo : '', "logoMode": (@qr_logo && logo.present? ? 'clean' : 'default')
 		}
 
 		params = {
@@ -113,19 +125,30 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 			return nil
 		end
 
-		# consideration for change https://qrcodedynamic.com/qr/url
+		# consideration for change https://qrcodedynamic.com/qr/url or https://rqrcode.com/
 
 		return MemoryFileBuffer.new("#{SecureRandom.hex}.svg", response.body)
 		
 	end
 
 	def create_qrcode_product(params, channel=nil, user_id=nil)
+		
 		raise ArgumentError, "Missing required parameter 'product_id'" unless params['product_id'].present?
-		Processors::Branding.generate_qr_for_products(params['product_id'], @integration.id, channel, user_id)
+
+		params.with_defaults(
+			integration_id: @integration.id
+		)
+
+		Processors::Branding.generate_qr_for_products(params['product_id'], params, channel, user_id)
 	end
 
-	def create_qrcode_products(params, channel=nil, user_id=nil)
-		Processors::Branding.generate_qr_for_products(@integration.company.products, @integration.id, channel, user_id)
+	def create_qrcode_products(params={}, channel=nil, user_id=nil)
+		
+		params.with_defaults(
+			integration_id: @integration.id
+		)
+
+		Processors::Branding.generate_qr_for_products(@integration.company.products, params, channel, user_id)
 	end
 
 end
