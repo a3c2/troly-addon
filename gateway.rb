@@ -28,10 +28,9 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 	def gateway_monthly_cost
 		return [] unless @plan_selected.present?
 
-		label = self.i18n("plans_details.#{@plan_selected}.description")
 		price = self.i18n("plans_details.#{@plan_selected}.price")
 
-		return [price, label]
+		return [price, @plan_selected]
 	end
 
 	# Generates a referral code ensuring uniqueness across both Company and CompanyCustomers
@@ -135,7 +134,7 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 		
 		raise ArgumentError, "Missing required parameter 'product_id'" unless params['product_id'].present?
 
-		params.with_defaults(
+		params.with_defaults!(
 			integration_id: @integration.id
 		)
 
@@ -144,7 +143,7 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 
 	def create_qrcode_products(params={}, channel=nil, user_id=nil)
 		
-		params.with_defaults(
+		params.with_defaults!(
 			integration_id: @integration.id
 		)
 
