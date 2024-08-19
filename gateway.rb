@@ -132,18 +132,18 @@ class Integrations::A3C2::Gateway < Integrations::BaseGateway
 
 	def create_qrcode_product(params, channel=nil, user_id=nil)
 		
-		raise ArgumentError, "Missing required parameter 'product_id'" unless params['product_id'].present?
-
-		params.with_defaults!(
+		params = HashWithIndifferentAccess.new(params).with_defaults!(
 			integration_id: @integration.id
 		)
+
+		raise ArgumentError, "Missing required parameter 'product_id'" unless params['product_id'].present?
 
 		Processors::Branding.generate_qr_for_products(params['product_id'], params, channel, user_id)
 	end
 
-	def create_qrcode_products(params={}, channel=nil, user_id=nil)
+	def create_qrcode_products(params, channel=nil, user_id=nil)
 		
-		params.with_defaults!(
+		params = HashWithIndifferentAccess.new(params).with_defaults!(
 			integration_id: @integration.id
 		)
 
