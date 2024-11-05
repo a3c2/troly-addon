@@ -2,15 +2,13 @@
 markets: "" # comma-separated list of 2-letters country codes. empty for all
 availability: "" # comma-separated list of any: enabled, referral, invite, request, deprecated, soon
 provider: "A3C2" # the middle bit in the class name for the gateway - Integrations::THIS_HERE::Gateway
-processor: "Base" # the expected list of functions to support, one of Acounting, Website, Email, Data, Payment or Shipment 
-logo: "https://res.cloudinary.com/subscribility-p/image/upload/w_128/cdn/qr.a3c2.com/logo.png" #link to logo image. displaied as 80x80 and 120x120
+logo: "" #link to logo image. displaied as 80x80 and 120x120
 hero: "" #link to hero image.
 website: "" 
 info_url: "" # link to website where more product information can be found
 support_url: ""
 pricing_url: "" # link to website where more product information can be found
 pricing: ""
-tags: "third-party"
 supports: "products_updown,customers_down"
 tbyb: true
 
@@ -68,7 +66,7 @@ layout:
 
 translations:
   en:
-    name: "QR Codes, Product & Nutrition eLabels"
+    name: "eLabels: Nutrition, Marketing & Compliance"
     info: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life."
     description: "Provide customers with the best product experience post-purchase, including accurate information about a product and most importantly the people involved in bringing it to life.\nThis application generates configurable and tracable QR codes, for each product, allowing customers to access full product information and provide feedback.\n<img width=110 height=110 style=\"margin-left:10%;\" src=\"https://a3c2.com/images/sample-all.gif\">"
     benefits: "configure look-and-feel for all QR codes generated\ngenerate eLabels with offers, subscriptions or time-limited offers\nadd regulatory details such as nutrition information for each product"
@@ -83,11 +81,11 @@ translations:
 
     plans_details:
       qr_codes:
-        price: 19
+        price: 39
         description: "QR Codes"
       basic_labels:
         price: 49
-        description: "QR Codes + eLabels"
+        description: "QR Codes + Redirections"
       advanced_labels:
         price: 89
         description: "QR Codes + eLabels + Nutrition details"
